@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>GameMania</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -17,170 +17,242 @@ box-sizing:border-box;
 }
 
 body{
-font-family:Poppins,sans-serif;
-background:#020312;
+font-family:Poppins;
+background:#050510;
 color:white;
 overflow-x:hidden;
 }
 
-.main{
-width:100%;
-min-height:100vh;
+body::before{
+content:"";
+position:fixed;
+inset:0;
+
 background:
-linear-gradient(rgba(2,3,18,.25),rgba(2,3,18,.25)),
-url("gamemania-bg.png");
-background-size:cover;
-background-position:center top;
-background-repeat:no-repeat;
-position:relative;
+radial-gradient(circle at top left,
+rgba(0,140,255,.18),
+transparent 40%),
+
+radial-gradient(circle at bottom right,
+rgba(255,0,200,.15),
+transparent 40%);
+
+z-index:-1;
 }
 
-.navbar{
-height:95px;
+header{
+padding:25px 80px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:0 70px;
+backdrop-filter:blur(15px);
+position:fixed;
+width:100%;
+top:0;
+z-index:100;
+background:rgba(5,5,15,.65);
 }
 
 .logo{
-display:flex;
-align-items:center;
-gap:18px;
+font-size:34px;
 font-family:Orbitron;
-font-size:28px;
 font-weight:900;
-}
 
-.logo span{
-background:linear-gradient(90deg,#2ca6ff,#ff2fd1);
+background:linear-gradient(
+90deg,
+#28b8ff,
+#ff34d2
+);
+
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-.menu{
+nav{
 display:flex;
-gap:55px;
+gap:35px;
 }
 
-.menu a{
+nav a{
 text-decoration:none;
 color:white;
-font-size:18px;
 font-weight:500;
 }
 
 .hero{
-display:grid;
-grid-template-columns:1fr 1fr;
-padding:90px 80px;
+
+height:100vh;
+
+background:
+
+linear-gradient(
+90deg,
+rgba(0,0,20,.92),
+rgba(0,0,20,.45)
+),
+
+url("https://images.wallpapersden.com/image/download/gaming-room-neon-hd-gamer-s-paradise_bW1tZW6UmZqaraWkpJRmbmdlrWZlbWU.jpg");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
 align-items:center;
+
+padding:120px 90px;
 }
 
-.left h1{
-font-family:Orbitron;
-font-size:95px;
+.hero-content{
+max-width:700px;
+}
+
+.hero h1{
+font-size:90px;
 line-height:1;
-font-weight:900;
-margin-bottom:20px;
+font-family:Orbitron;
+margin-bottom:25px;
 }
 
-.gradient{
-background:linear-gradient(90deg,#25a9ff,#ff37d5);
+.hero span{
+background:linear-gradient(
+90deg,
+#29b7ff,
+#ff37d5
+);
+
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-.left h2{
-font-size:28px;
-margin-bottom:25px;
-}
-
-.left p{
-max-width:650px;
+.hero p{
 font-size:22px;
-line-height:1.7;
-color:#dddddd;
+line-height:1.8;
+color:#ddd;
 margin-bottom:40px;
 }
 
 .btns{
 display:flex;
-gap:25px;
+gap:20px;
 }
 
 .btn{
-padding:20px 45px;
-border-radius:15px;
-border:2px solid #ff37d5;
+padding:18px 42px;
+border-radius:14px;
 text-decoration:none;
-color:white;
 font-weight:700;
-background:rgba(12,15,35,.75);
-backdrop-filter:blur(10px);
-box-shadow:0 0 25px rgba(255,0,220,.25);
+color:white;
+border:2px solid #ff37d5;
 }
 
-.primary{
-background:
-linear-gradient(
+.main-btn{
+background:linear-gradient(
 90deg,
-#7a2cff,
-#ff37d5
+#6f2dff,
+#ff38d8
 );
 }
 
-.right{
-height:500px;
+.section-title{
+text-align:center;
+font-size:50px;
+font-family:Orbitron;
+margin:100px 0 50px;
 }
 
-.features{
-padding:90px 80px;
+.games{
 display:grid;
-grid-template-columns:repeat(4,1fr);
+grid-template-columns:repeat(3,1fr);
 gap:30px;
+padding:0 80px;
 }
 
 .card{
-background:rgba(10,12,30,.9);
-border:1px solid rgba(255,0,220,.25);
+height:420px;
+border-radius:28px;
+overflow:hidden;
+position:relative;
+background:#111;
+}
+
+.card img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.overlay{
+position:absolute;
+inset:0;
+
+background:
+linear-gradient(
+transparent,
+rgba(0,0,0,.9)
+);
+
+display:flex;
+align-items:end;
+padding:30px;
+}
+
+.overlay h2{
+font-size:30px;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+padding:90px 80px;
+}
+
+.box{
+padding:40px;
 border-radius:24px;
-padding:45px 30px;
 text-align:center;
-backdrop-filter:blur(15px);
+
+background:
+rgba(15,15,30,.8);
+
+border:1px solid rgba(255,0,220,.25);
 }
 
-.card h3{
-font-size:34px;
-margin-bottom:18px;
+.stats{
+padding:80px;
+
+display:flex;
+justify-content:space-around;
+
+background:#09091c;
 }
 
-.card p{
-color:#d4d4d4;
-line-height:1.7;
+.num{
+font-size:50px;
+font-weight:700;
+color:#ff42d8;
 }
 
 .contact{
-padding:80px;
+padding:90px;
 text-align:center;
-background:#050718;
 }
 
-.contact h2{
-font-size:42px;
-font-family:Orbitron;
-margin-bottom:20px;
+.mail{
+font-size:28px;
+color:#33b6ff;
+margin-top:20px;
 }
 
-.email{
-font-size:24px;
-color:#ff48d8;
-font-weight:700;
+footer{
+padding:25px;
+text-align:center;
+color:#aaa;
 }
 
 @media(max-width:1000px){
 
-.hero{
+.games{
 grid-template-columns:1fr;
 }
 
@@ -188,20 +260,8 @@ grid-template-columns:1fr;
 grid-template-columns:1fr 1fr;
 }
 
-.left h1{
-font-size:70px;
-}
-
-}
-
-@media(max-width:700px){
-
-.features{
-grid-template-columns:1fr;
-}
-
-.menu{
-display:none;
+.hero h1{
+font-size:65px;
 }
 
 }
@@ -211,98 +271,186 @@ display:none;
 
 <body>
 
-<div class="main">
-
-<div class="navbar">
+<header>
 
 <div class="logo">
-🎮
-<span>GAMEMANIA</span>
+🎮 GAMEMANIA
 </div>
 
-<div class="menu">
+<nav>
 <a href="#">HOME</a>
 <a href="#">GAMES</a>
 <a href="#">FEATURES</a>
-<a href="#">ABOUT US</a>
-<a href="#contact">CONTACT US</a>
-</div>
+<a href="#">CONTACT</a>
+</nav>
 
-</div>
+</header>
 
-<div class="hero">
+<section class="hero">
 
-<div class="left">
+<div class="hero-content">
 
 <h1>
-WELCOME TO<br>
-<span class="gradient">
+
+WELCOME TO
+
+<span>
 GAMEMANIA
 </span>
+
 </h1>
 
-<h2>
-YOUR ULTIMATE DESTINATION FOR AWESOME GAMES!
-</h2>
-
 <p>
-Explore, download and enjoy the best collection of Android games –
-all in one place. Fast, safe and free!
+
+Discover action games, racing games,
+battle arenas and trending mobile titles
+inside one futuristic platform.
+
 </p>
 
 <div class="btns">
+
+<a class="btn main-btn">
+EXPLORE GAMES
+</a>
 
 <a class="btn">
 ABOUT US
 </a>
 
-<a class="btn primary">
-CONTACT US
-</a>
+</div>
+
+</div>
+
+</section>
+
+<h2 class="section-title">
+
+TRENDING GAMES
+
+</h2>
+
+<section class="games">
+
+<div class="card">
+
+<img src="https://images.wallpapersden.com/image/download/neon-hd-wallpaper-from-valorant_bW5tbWmUmZqaraWkpJRmbmdlrWZlbWU.jpg">
+
+<div class="overlay">
+
+<h2>Valorant Neon</h2>
 
 </div>
 
 </div>
 
-<div class="right"></div>
+<div class="card">
+
+<img src="https://images.wallpapersden.com/image/download/gaming-room-neon-hd-gamer-s-paradise_bW1tZW6UmZqaraWkpJRmbmdlrWZlbWU.jpg">
+
+<div class="overlay">
+
+<h2>Cyber Gaming Room</h2>
 
 </div>
 
 </div>
+
+<div class="card">
+
+<img src="https://images.wallpapersden.com/image/download/ultra-gaming-neon_bGxtaGaUmZqaraWkpJRmbmdlrWZlbWU.jpg">
+
+<div class="overlay">
+
+<h2>Neon Arena</h2>
+
+</div>
+
+</div>
+
+</section>
+
+<h2 class="section-title">
+
+WHY GAMEMANIA?
+
+</h2>
 
 <section class="features">
 
-<div class="card">
-<h3>🛡</h3>
-<p>100% Safe downloads</p>
+<div class="box">
+<h3>⚡ Fast Downloads</h3>
 </div>
 
-<div class="card">
-<h3>🚀</h3>
-<p>Fast download servers</p>
+<div class="box">
+<h3>🛡 Safe Files</h3>
 </div>
 
-<div class="card">
-<h3>🎮</h3>
-<p>Best games collection</p>
+<div class="box">
+<h3>🎮 Premium Games</h3>
 </div>
 
-<div class="card">
-<h3>🎁</h3>
-<p>Always free</p>
+<div class="box">
+<h3>🚀 Daily Updates</h3>
 </div>
 
 </section>
 
-<section class="contact" id="contact">
+<section class="stats">
 
-<h2>CONTACT US</h2>
+<div>
 
-<div class="email">
+<div class="num">
+500+
+</div>
+
+Games
+
+</div>
+
+<div>
+
+<div class="num">
+2M+
+</div>
+
+Players
+
+</div>
+
+<div>
+
+<div class="num">
+24/7
+</div>
+
+Support
+
+</div>
+
+</section>
+
+<section class="contact">
+
+<h2 class="section-title">
+
+CONTACT US
+
+</h2>
+
+<div class="mail">
+
 gamemania9596@gmail.com
+
 </div>
 
 </section>
+
+<footer>
+
+© GameMania 2026
+
+</footer>
 
 </body>
 </html>

@@ -1,503 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GameMania - Gaming Community</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      scroll-behavior:smooth;
-    }
+<title>GameMania</title>
 
-    body{
-      font-family:'Poppins',sans-serif;
-      background:#050816;
-      color:white;
-      overflow-x:hidden;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    body::before{
-      content:'';
-      position:fixed;
-      width:700px;
-      height:700px;
-      background:radial-gradient(circle,#6a00ff55 0%,transparent 70%);
-      top:-250px;
-      right:-200px;
-      z-index:-1;
-    }
+<style>
 
-    body::after{
-      content:'';
-      position:fixed;
-      width:600px;
-      height:600px;
-      background:radial-gradient(circle,#00bfff33 0%,transparent 70%);
-      bottom:-250px;
-      left:-200px;
-      z-index:-1;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-    nav{
-      position:fixed;
-      top:0;
-      width:100%;
-      padding:18px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background:rgba(0,0,0,0.45);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(255,255,255,0.08);
-      z-index:1000;
-    }
+body{
+background:#030311;
+font-family:'Poppins',sans-serif;
+color:white;
+overflow-x:hidden;
+}
 
-    .logo{
-      font-size:2rem;
-      font-weight:800;
-      font-family:'Orbitron',sans-serif;
-      color:#00d4ff;
-      letter-spacing:2px;
-      text-shadow:0 0 20px #00d4ff;
-    }
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 20% 20%,rgba(0,140,255,.12),transparent 35%),
+radial-gradient(circle at 80% 30%,rgba(255,0,200,.12),transparent 35%);
+z-index:-1;
+}
 
-    .nav-links{
-      display:flex;
-      gap:30px;
-      list-style:none;
-    }
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 80px;
+border-bottom:1px solid rgba(255,255,255,.08);
+}
 
-    .nav-links a{
-      text-decoration:none;
-      color:white;
-      font-weight:500;
-      transition:0.3s;
-    }
+.logo{
+font-family:'Orbitron';
+font-size:38px;
+font-weight:900;
+background:linear-gradient(90deg,#1ea4ff,#ff33cc);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-    .nav-links a:hover{
-      color:#00d4ff;
-    }
+nav ul{
+display:flex;
+gap:40px;
+list-style:none;
+}
 
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:120px 8% 50px;
-      gap:40px;
-      flex-wrap:wrap;
-    }
+nav a{
+text-decoration:none;
+color:white;
+font-weight:500;
+transition:.3s;
+}
 
-    .hero-content{
-      flex:1;
-      min-width:300px;
-    }
+nav a:hover{
+color:#c03fff;
+}
 
-    .hero-content h1{
-      font-size:4rem;
-      line-height:1.1;
-      margin-bottom:20px;
-      font-family:'Orbitron',sans-serif;
-    }
+.hero{
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+padding:80px;
+min-height:85vh;
+}
 
-    .hero-content h1 span{
-      color:#00d4ff;
-      text-shadow:0 0 25px #00d4ff;
-    }
+.hero-text h1{
+font-family:'Orbitron';
+font-size:82px;
+line-height:1;
+margin-bottom:25px;
+}
 
-    .hero-content p{
-      color:#c9d4ff;
-      line-height:1.8;
-      max-width:650px;
-      margin-bottom:35px;
-      font-size:1.05rem;
-    }
+.hero-text span{
+background:linear-gradient(90deg,#25b7ff,#ff34d2);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-    .hero-buttons{
-      display:flex;
-      gap:20px;
-      flex-wrap:wrap;
-    }
+.hero-text h3{
+font-size:32px;
+margin-bottom:20px;
+}
 
-    .btn{
-      padding:15px 30px;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:600;
-      transition:0.3s;
-      display:inline-block;
-    }
+.hero-text p{
+font-size:20px;
+color:#c7c7c7;
+line-height:1.8;
+max-width:650px;
+margin-bottom:40px;
+}
 
-    .btn-primary{
-      background:linear-gradient(135deg,#00d4ff,#6a00ff);
-      color:white;
-      box-shadow:0 10px 30px rgba(0,212,255,0.3);
-    }
+.buttons{
+display:flex;
+gap:25px;
+}
 
-    .btn-primary:hover{
-      transform:translateY(-3px) scale(1.03);
-    }
+.btn{
+padding:18px 40px;
+border-radius:14px;
+text-decoration:none;
+font-size:18px;
+font-weight:600;
+border:2px solid #b33cff;
+color:white;
+box-shadow:0 0 25px rgba(185,0,255,.4);
+}
 
-    .btn-secondary{
-      border:1px solid rgba(255,255,255,0.2);
-      color:white;
-      background:rgba(255,255,255,0.05);
-    }
+.primary{
+background:linear-gradient(90deg,#6040ff,#ff2fd1);
+}
 
-    .btn-secondary:hover{
-      background:rgba(255,255,255,0.1);
-    }
+.hero-image{
+display:flex;
+justify-content:center;
+}
 
-    .hero-image{
-      flex:1;
-      min-width:300px;
-      display:flex;
-      justify-content:center;
-    }
+.hero-image img{
+width:100%;
+max-width:700px;
+border-radius:30px;
+box-shadow:0 0 50px rgba(180,0,255,.4);
+}
 
-    .gaming-card{
-      width:100%;
-      max-width:520px;
-      background:rgba(255,255,255,0.06);
-      border:1px solid rgba(255,255,255,0.1);
-      border-radius:30px;
-      overflow:hidden;
-      backdrop-filter:blur(14px);
-      box-shadow:0 25px 50px rgba(0,0,0,0.4);
-    }
+.section-title{
+text-align:center;
+font-family:'Orbitron';
+font-size:48px;
+margin:60px 0;
+}
 
-    .gaming-card img{
-      width:100%;
-      height:320px;
-      object-fit:cover;
-    }
+.features{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+padding:0 80px 80px;
+}
 
-    .gaming-card-content{
-      padding:30px;
-    }
+.card{
+padding:40px;
+text-align:center;
+border:1px solid rgba(255,0,220,.4);
+border-radius:20px;
+background:rgba(10,10,30,.7);
+transition:.3s;
+}
 
-    .gaming-card-content h3{
-      margin-bottom:12px;
-      font-size:1.7rem;
-    }
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(255,0,200,.4);
+}
 
-    .gaming-card-content p{
-      color:#c5cfff;
-      line-height:1.7;
-    }
+.card h2{
+margin-bottom:15px;
+}
 
-    section{
-      padding:100px 8%;
-    }
+.contact{
+padding:80px;
+text-align:center;
+background:#06061c;
+border-top:1px solid rgba(255,255,255,.08);
+}
 
-    .section-title{
-      text-align:center;
-      font-size:2.8rem;
-      margin-bottom:70px;
-      font-family:'Orbitron',sans-serif;
-    }
+.email{
+margin-top:20px;
+font-size:24px;
+color:#ff4fd8;
+font-weight:600;
+}
 
-    .section-title span{
-      color:#00d4ff;
-    }
+footer{
+padding:20px;
+text-align:center;
+color:#888;
+}
 
-    .features{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:30px;
-    }
+@media(max-width:1000px){
 
-    .feature-card{
-      background:rgba(255,255,255,0.05);
-      border-radius:24px;
-      padding:35px;
-      border:1px solid rgba(255,255,255,0.08);
-      transition:0.3s;
-      backdrop-filter:blur(10px);
-    }
+.hero{
+grid-template-columns:1fr;
+text-align:center;
+}
 
-    .feature-card:hover{
-      transform:translateY(-8px);
-      border-color:#00d4ff;
-      box-shadow:0 20px 40px rgba(0,212,255,0.15);
-    }
+.hero-text h1{
+font-size:56px;
+}
 
-    .feature-icon{
-      font-size:3rem;
-      margin-bottom:20px;
-    }
+.buttons{
+justify-content:center;
+flex-wrap:wrap;
+}
 
-    .feature-card h3{
-      margin-bottom:15px;
-      font-size:1.4rem;
-    }
+.features{
+grid-template-columns:1fr 1fr;
+}
 
-    .feature-card p{
-      color:#c5cfff;
-      line-height:1.7;
-    }
+header{
+flex-direction:column;
+gap:20px;
+}
 
-    .games-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:30px;
-    }
+}
 
-    .game-box{
-      position:relative;
-      overflow:hidden;
-      border-radius:24px;
-      height:340px;
-      cursor:pointer;
-      border:1px solid rgba(255,255,255,0.08);
-    }
+@media(max-width:700px){
 
-    .game-box img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transition:0.5s;
-    }
+.features{
+grid-template-columns:1fr;
+padding:20px;
+}
 
-    .game-box:hover img{
-      transform:scale(1.1);
-    }
+.hero{
+padding:40px;
+}
 
-    .game-overlay{
-      position:absolute;
-      inset:0;
-      background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);
-      display:flex;
-      align-items:flex-end;
-      padding:25px;
-    }
+header{
+padding:30px;
+}
 
-    .game-overlay h3{
-      font-size:1.5rem;
-      margin-bottom:8px;
-    }
+}
 
-    .game-overlay p{
-      color:#cfd8ff;
-      font-size:0.95rem;
-    }
+</style>
 
-    .cta{
-      text-align:center;
-      background:linear-gradient(135deg,rgba(0,212,255,0.12),rgba(106,0,255,0.12));
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:35px;
-      padding:80px 40px;
-    }
-
-    .cta h2{
-      font-size:3rem;
-      margin-bottom:20px;
-      font-family:'Orbitron',sans-serif;
-    }
-
-    .cta p{
-      max-width:750px;
-      margin:auto;
-      color:#d4dbff;
-      line-height:1.8;
-      margin-bottom:35px;
-    }
-
-    footer{
-      text-align:center;
-      padding:35px 20px;
-      color:#aab5dd;
-      border-top:1px solid rgba(255,255,255,0.08);
-      margin-top:80px;
-    }
-
-    @media(max-width:900px){
-      .hero-content h1{
-        font-size:3rem;
-      }
-
-      .nav-links{
-        gap:15px;
-      }
-    }
-
-    @media(max-width:700px){
-      nav{
-        flex-direction:column;
-        gap:15px;
-      }
-
-      .hero{
-        text-align:center;
-      }
-
-      .hero-buttons{
-        justify-content:center;
-      }
-
-      .hero-content h1{
-        font-size:2.5rem;
-      }
-
-      .section-title{
-        font-size:2.2rem;
-      }
-
-      .cta h2{
-        font-size:2.2rem;
-      }
-    }
-  </style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <div class="logo">GAMEMANIA</div>
+<header>
 
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#games">Games</a></li>
-      <li><a href="#community">Community</a></li>
-    </ul>
-  </nav>
+<div class="logo">🎮 GAMEMANIA</div>
 
-  <!-- HERO SECTION -->
-  <section class="hero" id="home">
+<nav>
+<ul>
+<li><a href="#">HOME</a></li>
+<li><a href="#">GAMES</a></li>
+<li><a href="#">FEATURES</a></li>
+<li><a href="#">ABOUT US</a></li>
+<li><a href="#contact">CONTACT</a></li>
+</ul>
+</nav>
 
-    <div class="hero-content">
-      <h1>LEVEL UP YOUR <span>GAMING WORLD</span></h1>
+</header>
 
-      <p>
-        Welcome to GameMania — your ultimate destination for gaming news, gameplay updates, game reviews, tutorials, mods, and epic adventures. Explore the latest gaming universe with a futuristic experience built for gamers.
-      </p>
+<section class="hero">
 
-      <div class="hero-buttons">
-        <a href="mailto:gamemania9596@gmail.com" class="btn btn-primary">Contact Us</a>
-        <a href="#games" class="btn btn-secondary">Explore Games</a>
-      </div>
-    </div>
+<div class="hero-text">
 
-    <div class="hero-image">
-      <div class="gaming-card">
-        <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=1200&auto=format&fit=crop" alt="Gaming Setup">
+<h1>
+WELCOME TO<br>
+<span>GAMEMANIA</span>
+</h1>
 
-        <div class="gaming-card-content">
-          <h3>Next Generation Gaming</h3>
+<h3>Your Ultimate Destination For Awesome Games!</h3>
 
-          <p>
-            Discover trending games, immersive gameplay, gaming tips, esports highlights, and the latest gaming industry updates.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+<p>
+Explore, download and enjoy the best collection of Android games –
+all in one place. Fast, safe and completely free.
+</p>
 
-  <!-- FEATURES -->
-  <section id="features">
-    <h2 class="section-title">Why <span>GameMania</span>?</h2>
+<div class="buttons">
 
-    <div class="features">
+<a href="#" class="btn">
+ABOUT US
+</a>
 
-      <div class="feature-card">
-        <div class="feature-icon">🎮</div>
-        <h3>Latest Gaming News</h3>
-        <p>
-          Stay updated with new game launches, updates, esports events, and gaming trends from around the world.
-        </p>
-      </div>
+<a href="#contact" class="btn primary">
+CONTACT US
+</a>
 
-      <div class="feature-card">
-        <div class="feature-icon">🔥</div>
-        <h3>Trending Content</h3>
-        <p>
-          Explore viral gameplay videos, walkthroughs, hidden secrets, mods, and game-changing strategies.
-        </p>
-      </div>
+</div>
 
-      <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <h3>Fast & Modern Design</h3>
-        <p>
-          A responsive and futuristic website experience optimized for desktop, tablet, and mobile devices.
-        </p>
-      </div>
+</div>
 
-    </div>
-  </section>
+<div class="hero-image">
 
-  <!-- GAMES -->
-  <section id="games">
+<img src="hero-image.jpg" alt="Game Banner">
 
-    <h2 class="section-title">Featured <span>Games</span></h2>
+</div>
 
-    <div class="games-grid">
+</section>
 
-      <div class="game-box">
-        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop" alt="Action Games">
+<h2 class="section-title">
+WHY GAMEMANIA?
+</h2>
 
-        <div class="game-overlay">
-          <div>
-            <h3>Action Games</h3>
-            <p>High-speed combat and thrilling gameplay experiences.</p>
-          </div>
-        </div>
-      </div>
+<section class="features">
 
-      <div class="game-box">
-        <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=1200&auto=format&fit=crop" alt="Racing Games">
+<div class="card">
+<h2>100% Safe</h2>
+<p>
+All games are tested and safe to download.
+</p>
+</div>
 
-        <div class="game-overlay">
-          <div>
-            <h3>Racing Games</h3>
-            <p>Feel the adrenaline with realistic racing adventures.</p>
-          </div>
-        </div>
-      </div>
+<div class="card">
+<h2>Fast Downloads</h2>
+<p>
+High-speed servers for quick downloads.
+</p>
+</div>
 
-      <div class="game-box">
-        <img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?q=80&w=1200&auto=format&fit=crop" alt="Esports">
+<div class="card">
+<h2>Best Games</h2>
+<p>
+Handpicked games for every gamer.
+</p>
+</div>
 
-        <div class="game-overlay">
-          <div>
-            <h3>Esports Arena</h3>
-            <p>Competitive gaming, tournaments, and esports coverage.</p>
-          </div>
-        </div>
-      </div>
+<div class="card">
+<h2>Always Free</h2>
+<p>
+No hidden charges. Everything is free.
+</p>
+</div>
 
-    </div>
-  </section>
+</section>
 
-  <!-- COMMUNITY -->
-  <section id="community">
+<section class="contact" id="contact">
 
-    <div class="cta">
-      <h2>Join The Gaming Revolution</h2>
+<h2 class="section-title">
+CONTACT US
+</h2>
 
-      <p>
-        Build your gaming community, share your gameplay stories, and explore the future of gaming with GameMania. Whether you love action, racing, survival, multiplayer, or simulation games — there is something here for every gamer.
-      </p>
+<p>
+Need help or game requests? Reach us anytime:
+</p>
 
-      <a href="mailto:gamemania9596@gmail.com" class="btn btn-primary" target="_blank">
-        Enter GameMania
-      </a>
-    </div>
-  </section>
+<div class="email">
+gamemania9596@gmail.com
+</div>
 
-  <!-- FOOTER -->
-  <footer>
-    © 2026 GameMania. Designed with ❤️ for gamers.
-  </footer>
+</section>
+
+<footer>
+
+© 2026 GameMania — All Rights Reserved
+
+</footer>
 
 </body>
 </html>

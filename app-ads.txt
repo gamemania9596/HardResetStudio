@@ -195,6 +195,7 @@ xandr.com, 15840, RESELLER
 xandr.com, 17779, RESELLER
 zetaglobal.net, 630, RESELLER
 zmaticoo.com, 5135195, RESELLER
+ogury.com, 065d4ff5-a269-44be-9634-9d4d7af2dfc3, RESELLER
 
 #Mint
 mintegral.com, 42439, DIRECT, 0aeed750c80d6423
